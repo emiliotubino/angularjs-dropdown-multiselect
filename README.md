@@ -19,7 +19,7 @@ This directive gives you a Bootstrap Dropdown with the power of AngularJS direct
 http://dotansimha.github.io/angularjs-dropdown-multiselect/
 
 ## Dependencies
-- required: AngularJS >= 1.5, Bootstrap >= 3.0
+- required: AngularJS >= 1.2, Bootstrap >= 3.0
 
 - Make sure to add the dependencies before the directive's js file. 
 - Note: Bootstrap JS file is not needed for the directive, it just uses the CSS file
@@ -27,6 +27,7 @@ http://dotansimha.github.io/angularjs-dropdown-multiselect/
 ## Install
 1. Download the files
 	1. Using bower: <img src="http://benschwarz.github.io/bower-badges/badge@2x.png" width="130" height="30">
+	
 		Just run `bower install angularjs-dropdown-multiselect`
 	2. Using npm : 
 		Just run `npm install angularjs-dropdown-multiselect`
