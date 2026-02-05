@@ -42,7 +42,6 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
 			template += '<li ng-if="(settings.showCheckAll && settings.selectionLimit > 0) || settings.showUncheckAll || settings.showEnableSearchButton" class="divider"></li>';
 			template += '<li ng-if="settings.enableSearch"><div class="dropdown-header"><input type="text" class="form-control searchField" ng-keydown="keyDownSearchDefault($event); keyDownSearch($event, input.searchFilter);" ng-style="{width: \'100%\'}" ng-model="input.searchFilter" placeholder="{{texts.searchPlaceholder}}" /></li>';
 			template += '<li ng-if="settings.enableSearch" class="divider"></li>';
-			template += '<li>sadasdas</li>';
 
 			if (groups) {
 				template += '<li ng-repeat-start="option in orderedItems | filter:getFilter(input.searchFilter)" ng-show="getPropertyForObject(option, settings.groupBy) !== getPropertyForObject(orderedItems[$index - 1], settings.groupBy)" role="presentation" class="dropdown-header">{{ getGroupLabel(getPropertyForObject(option, settings.groupBy)) }}</li>';
@@ -63,6 +62,9 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
 
 			template += '<li class="divider" ng-show="settings.selectionLimit > 1"></li>';
 			template += '<li role="presentation" ng-show="settings.selectionLimit > 1"><a role="menuitem">{{selectedModel.length}} {{texts.selectionOf}} {{settings.selectionLimit}} {{texts.selectionCount}}</a></li>';
+
+			template += '<li ng-if="settings.showDoneButton" class="divider"></li>';
+			template += '<li ng-if="settings.showDoneButton" class="done-button-container"><button type="button" class="btn btn-primary btn-block done-button" ng-click="close()">{{texts.doneButtonText}}</button></li>';
 
 			template += '</ul>';
 			template += '</div>';
@@ -129,7 +131,8 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
 				keyboardControls: false,
 				template: '{{getPropertyForObject(option, settings.displayProp)}}',
 				searchField: '$',
-				showAllSelectedText: false
+				showAllSelectedText: false,
+				showDoneButton: false
 			};
 
 			$scope.texts = {
@@ -143,7 +146,8 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
 				disableSearch: 'Disable search',
 				enableSearch: 'Enable search',
 				selectGroup: 'Select all:',
-				allSelectedText: 'All'
+				allSelectedText: 'All',
+				doneButtonText: 'Done'
 			};
 
 			$scope.input = {
